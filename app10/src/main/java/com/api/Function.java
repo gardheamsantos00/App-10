@@ -50,7 +50,13 @@ public class Function {
             HttpMethod.PUT }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") Funcionario funcionario) {
 
         // operações de modificar a lista
-
+        for (Funcionario func : funcionarios) {
+            if(func.ID == funcionario.ID){
+                func.setNome(funcionario.getNome());
+                func.setIdade(funcionario.getIdade());
+                func.setSalário(funcionario.getSalário());
+            }
+        }
         return funcionario;
     }
 
@@ -58,7 +64,12 @@ public class Function {
     public String deleteFuncionario(@HttpTrigger(name = "deleteFuncionario", methods = {
             HttpMethod.DELETE }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") int id) {
 
-        //operação de deletar da lista        
+        //operação de deletar da lista   
+        for (Funcionario func : funcionarios) {
+            if(func.ID == id){
+                funcionarios.remove(id);
+            }
+        }     
 
         return "ok";
     }
