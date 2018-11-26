@@ -28,8 +28,13 @@ public class Function {
             HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") Funcionario funcionario) {
 
         // operações de add na lista
+        Funcionario func = new Funcionario();
+        func.setID(funcionario.getID());
+        func.setNome(funcionario.getNome());
+        func.setIdade(funcionario.getIdade());
+        func.setSalário(funcionario.getSalário());
 
-        return funcionario;
+        return func;
     }
 
     @FunctionName("read-funcionario")
@@ -66,6 +71,10 @@ class Funcionario {
     String nome;
     int idade;
     double salário;
+
+    Funcionario(){
+
+    }
 
     Funcionario(Long ID, String nome, int idade, double salario) {
         this.ID = ID;
