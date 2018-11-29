@@ -62,7 +62,7 @@ public class Function {
 
     @FunctionName("delete-funcionario")
     public String deleteFuncionario(@HttpTrigger(name = "deleteFuncionario", methods = {
-            HttpMethod.DELETE }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") int id) {
+            HttpMethod.DELETE }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario/{id}") int id) {
 
         //operação de deletar da lista   
         for (Funcionario func : funcionarios) {
